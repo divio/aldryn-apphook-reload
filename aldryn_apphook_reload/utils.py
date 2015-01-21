@@ -91,6 +91,7 @@ def reload_urlconf(urlconf=None, new_revision=None):
         reload(sys.modules[urlconf])
     cms.appresolver.clear_app_resolvers()
     django.core.urlresolvers.clear_url_caches()
+    cms.appresolver.get_app_patterns()
     if new_revision is not None:
         set_local_revision(new_revision)
 
