@@ -10,14 +10,14 @@ aldryn-apphook-reload
 Reload urls of django CMS Apphooks without a restart
 
 
-.. WARN:: This is a Prototype.
+.. warning:: This is a Prototype.
 
 
 Introduction
 ------------
 
-Django CMS allows
-`extending cms pages with Apphooks<http://django-cms.readthedocs.org/en/support-3.0.x/introduction/apphooks.html>`_ .
+Django CMS allows `extending cms pages with Apphooks
+<http://django-cms.readthedocs.org/en/support-3.0.x/introduction/apphooks.html>`_.
 Apphooks are saved in the Database, which means urls depend on the database contents. For changes
 to Apphooks to be reflected in ``reverse()`` and ``{% url ... %}`` calls, a webserver restart
 is usually necessary.
