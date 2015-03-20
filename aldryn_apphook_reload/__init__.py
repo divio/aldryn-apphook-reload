@@ -12,4 +12,4 @@ __status__ = 'Development'
 __doc__ = 'Reload urls of django CMS Apphooks without a restart'  # noqa
 
 
-default_app_config = 'aldryn_apphook_reload.apps.AldrynApphookRelodConfig'
+default_app_config = 'aldryn_apphook_reload.apps.AldrynApphookReloadConfig'
