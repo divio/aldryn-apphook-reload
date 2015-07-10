@@ -8,7 +8,8 @@ from django.core.urlresolvers import reverse
 import cms.appresolver
 from threading import local
 import cms.apphook_pool
-
+# Py2 and Py3 compatible reload
+from imp import reload
 
 _urlconf_revision = {}
 _urlconf_revision_threadlocal = local()
