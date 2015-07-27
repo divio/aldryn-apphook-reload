@@ -22,9 +22,11 @@ def ensure_urlconf_is_up_to_date():
     local_revision = get_local_revision()
     if global_revision != local_revision:
         if settings.DEBUG:
-            print("    new revision!!!! RELOAD!\n      {} ({})\n   -> {} ({})".format(
-                global_revision, type(global_revision),
-                local_revision, type(local_revision),
+            print("   New revision!!!! RELOAD!\n"
+                  "      {0} ({1})\n"
+                  "   -> {2} ({3})".format(
+                      global_revision, type(global_revision),
+                      local_revision, type(local_revision),
             ))
         debug_check_url('my_test_app_view')
         reload_urlconf(new_revision=global_revision)
@@ -99,24 +101,11 @@ def reload_urlconf(urlconf=None, new_revision=None):
 
 
 def debug_check_url(url_name):
-    # try:
-    #     print """    django.core.urlresolvers.reverse('{}'): {} """.format(
-    #         url_name,
-    #         django.core.urlresolvers.reverse(url_name)
-    #     )
-    # except Exception as e:
-    #     print "django.core.urlresolvers.reverse('{}'): {}".format(
-    #         url_name,
-    #         e,
-    #     )
     if settings.DEBUG:
         try:
-            print("""    reverse('{}'): {} """.format(
+            print("""    reverse('{0}'): {1} """.format(
                 url_name,
                 reverse('my_test_app_view'),
             ))
         except Exception as e:
-            print("reverse('{}'): {}".format(
-                url_name,
-                e,
-            ))
+            print("reverse('{0}'): {1}".format(url_name, e,))
