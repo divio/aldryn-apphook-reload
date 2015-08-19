@@ -20,7 +20,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=(
-        'Django>=1.6,<1.8',
+        'Django>=1.6,<1.9',
         'South>=1.0.1,<2',
     ),
     classifiers = [
