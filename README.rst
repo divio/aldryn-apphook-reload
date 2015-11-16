@@ -40,6 +40,8 @@ Installation
 
 * run migrations: ``python manage.py migrate aldryn_apphook_reload``
 
+**Note:** for ``Django<1.7`` you also need to install and configure ``South``
+to be able to run migrations.
 
 Advanced
 --------
