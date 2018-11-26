@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import *
-from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.views.generic import View
+
+from aldryn_apphook_reload.compat import reverse
 
 
 class MyTestView(View):
@@ -15,6 +16,6 @@ class MyTestView(View):
         return HttpResponse("My Apphook Page")
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', MyTestView.as_view(), name='my_test_app_view'),
-)
+]

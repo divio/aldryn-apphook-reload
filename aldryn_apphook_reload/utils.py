@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
+from __future__ import absolute_import, unicode_literals
+
 import sys
 import uuid
-from django.conf import settings
-import django.core.urlresolvers
-from django.core.urlresolvers import reverse
-import cms.appresolver
-from threading import local
-import cms.apphook_pool
 # Py2 and Py3 compatible reload
 from imp import reload
+from threading import local
+
+from django.conf import settings
+
+import cms.apphook_pool
+import cms.appresolver
+
+from .compat import reverse, urlresolvers
 
 _urlconf_revision = {}
 _urlconf_revision_threadlocal = local()
@@ -94,7 +97,7 @@ def reload_urlconf(urlconf=None, new_revision=None):
     if urlconf in sys.modules:
         reload(sys.modules[urlconf])
     cms.appresolver.clear_app_resolvers()
-    django.core.urlresolvers.clear_url_caches()
+    urlresolvers.clear_url_caches()
     cms.appresolver.get_app_patterns()
     if new_revision is not None:
         set_local_revision(new_revision)

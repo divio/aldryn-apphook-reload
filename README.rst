@@ -17,7 +17,7 @@ Introduction
 ------------
 
 Django CMS allows `extending cms pages with Apphooks
-<http://django-cms.readthedocs.org/en/support-3.0.x/introduction/apphooks.html>`_.
+<http://docs.django-cms.org/en/release-3.5.x/how_to/apphooks.html>`_.
 Apphooks are saved in the Database, which means urls depend on the database contents. For changes
 to Apphooks to be reflected in ``reverse()`` and ``{% url ... %}`` calls, a webserver restart
 is usually necessary.
@@ -35,13 +35,10 @@ Installation
 
 * add ``aldryn_apphook_reload`` to ``INSTALLED_APPS``.
 
-* add ``aldryn_apphook_reload.middleware.ApphookReloadMiddleware`` to ``MIDDLEWARE_CLASSES``
+* add ``aldryn_apphook_reload.middleware.ApphookReloadMiddleware`` to ``MIDDLEWARE``
   (place it as close to the top as possible)
 
 * run migrations: ``python manage.py migrate aldryn_apphook_reload``
-
-**Note:** for ``Django<1.7`` you also need to install and configure ``South``
-to be able to run migrations.
 
 Advanced
 --------
@@ -56,7 +53,3 @@ Tests with gunicorn in the default mode and in the gevent mode worked fine thoug
 Why not save the token in the cache backend for better performance? - Because altering the cache
 would happen right away, before the database transaction is committed at the end of the request.
 Thus other process would reload their urls prematurely.
-
-
-
-
